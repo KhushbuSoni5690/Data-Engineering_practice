@@ -1,0 +1,521 @@
+order_id,customer_name,order_date,amount,city,status
+410, Mei Chen,06 Nov 2025,$202.23,Perth,pending
+166,ravi patel ,09 May 2025,$267.42,Perth,done
+187,Aisha Khan,2025-08-05,332.82,,DONE
+490,ravi patel ,27/05/2025,,,pending
+471,ravi patel ,2025-06-26,,,done
+31, Mei Chen,13/04/2025,406.51,Perth,DONE
+120,Tom Nguyen,20/08/2025,,Melbourne,done
+357,ravi patel ,04/02/2025,$112.73,,cancelled
+77,Aisha Khan,27 Feb 2025,,Brisbane,DONE
+460,ravi patel ,30 Jun 2025,$403.14,,cancelled
+52,ravi patel ,24 Feb 2025,$460.08,Sydney,DONE
+374,ravi patel ,2025-03-17,$46.82,Sydney,DONE
+104,ravi patel ,15/01/2025,,Perth,cancelled
+411,Tom Nguyen,2025-10-17,,Sydney,cancelled
+132,Tom Nguyen,27/09/2025,,,pending
+347,Aisha Khan,2025-12-31,,Perth,pending
+226,ravi patel ,09/10/2025,,Melbourne,cancelled
+296,Sara Lopez,2025-03-12,,,pending
+7, Mei Chen,06 Apr 2025,496.31,,cancelled
+51,ravi patel ,09 Feb 2025,474.87,Brisbane,pending
+9,ravi patel ,2025-09-03,,Brisbane,pending
+303,Sara Lopez,30 Mar 2025,140.28,Melbourne,done
+3,Sara Lopez,2025-11-08,349.44,Melbourne,pending
+26,ravi patel ,2025-02-06,,Perth,pending
+351,Sara Lopez,29 Jan 2025,,Brisbane,DONE
+170,Sara Lopez,02 Mar 2025,,Melbourne,done
+392,Aisha Khan,2025-09-03,$421.32,Sydney,done
+500,Aisha Khan,04 Feb 2025,82.42,Sydney,DONE
+472, Mei Chen,17/01/2025,14.42,,DONE
+475,Tom Nguyen,2025-11-04,$338.76,Sydney,DONE
+406,Aisha Khan,2025-06-25,,Melbourne,cancelled
+448, Mei Chen,18/02/2025,406.73,Brisbane,DONE
+123,Aisha Khan,2025-01-15,128.81,Sydney,cancelled
+150,ravi patel ,19 May 2025,$78.43,Perth,done
+404, Mei Chen,2025-10-16,466.80,Melbourne,pending
+142,Sara Lopez,07 Aug 2025,477.63,Perth,pending
+285,Aisha Khan,2025-08-01,150.78,Perth,cancelled
+88,Tom Nguyen,09 Nov 2025,119.90,Brisbane,pending
+116, Mei Chen,30 May 2025,,Melbourne,cancelled
+62,ravi patel ,09/06/2025,$425.25,Perth,done
+230, Mei Chen,2025-04-11,,Sydney,done
+112, Mei Chen,2025-07-16,367.64,Perth,done
+384,Aisha Khan,2025-02-02,,,pending
+213,Tom Nguyen,23 Jan 2025,$78.10,Melbourne,done
+381,Aisha Khan,11/06/2025,,Sydney,done
+96,ravi patel ,06/12/2025,63.44,Perth,DONE
+422,Aisha Khan,2025-10-22,,,DONE
+195, Mei Chen,2025-06-22,$129.88,,cancelled
+445, Mei Chen,20/02/2025,48.13,,pending
+185,Aisha Khan,2025-03-21,$413.88,Perth,cancelled
+11,Sara Lopez,08 Sep 2025,,,cancelled
+396,ravi patel ,14/05/2025,,Perth,done
+433,Aisha Khan,18 Dec 2025,,,done
+81,ravi patel ,24 Nov 2025,,Perth,pending
+163,Sara Lopez,07/11/2025,,Perth,cancelled
+373,Tom Nguyen,02/10/2025,,Brisbane,DONE
+173,Aisha Khan,2025-01-28,,Melbourne,done
+372,ravi patel ,2025-09-27,167.03,Brisbane,pending
+306,Sara Lopez,05/10/2025,$308.72,Sydney,pending
+330,Sara Lopez,22 Aug 2025,223.19,Melbourne,done
+431,Sara Lopez,29/05/2025,386.67,Perth,pending
+8,Sara Lopez,17 Sep 2025,$145.66,Perth,done
+13,Tom Nguyen,27 Jul 2025,$424.49,Brisbane,done
+204,Sara Lopez,27/02/2025,318.55,,cancelled
+99, Mei Chen,2025-04-20,$399.73,Perth,pending
+148, Mei Chen,16/11/2025,,Brisbane,done
+186,Tom Nguyen,21 Nov 2025,,Melbourne,DONE
+216,Sara Lopez,05 Jun 2025,,,pending
+424, Mei Chen,29 Mar 2025,$202.98,Melbourne,done
+428,Sara Lopez,04/04/2025,,,pending
+479,Aisha Khan,2025-10-08,,,pending
+413,Tom Nguyen,31 Jul 2025,,Perth,cancelled
+258, Mei Chen,2025-04-26,155.57,Sydney,done
+130, Mei Chen,21/01/2025,426.32,Melbourne,done
+386,Tom Nguyen,29 Sep 2025,268.97,,cancelled
+12,ravi patel ,2025-11-28,88.45,,DONE
+444,Aisha Khan,20 Sep 2025,335.79,Melbourne,pending
+416,ravi patel ,2025-09-09,83.88,Melbourne,cancelled
+134,Aisha Khan,2025-11-22,,Brisbane,cancelled
+327,Tom Nguyen,17 Aug 2025,,Brisbane,DONE
+370,Aisha Khan,31 May 2025,24.59,Melbourne,pending
+250,Tom Nguyen,2025-08-08,,Melbourne,DONE
+485, Mei Chen,14/11/2025,,Brisbane,pending
+316,Sara Lopez,19 Jul 2025,,Sydney,DONE
+221,Sara Lopez,16 Mar 2025,$58.40,Perth,pending
+480,Sara Lopez,02 Jan 2025,193.92,Sydney,done
+73,Aisha Khan,15/04/2025,406.23,,done
+268, Mei Chen,27 Nov 2025,,Sydney,pending
+214,Sara Lopez,17/10/2025,,Brisbane,cancelled
+190,Sara Lopez,2025-08-27,285.67,Melbourne,cancelled
+106,Sara Lopez,29 Oct 2025,,,done
+321, Mei Chen,2025-08-09,,,DONE
+6,Tom Nguyen,2025-12-13,381.67,,done
+1,Aisha Khan,10 Mar 2025,$383.07,Perth,cancelled
+82, Mei Chen,2025-04-02,$304.70,Perth,pending
+265, Mei Chen,12/08/2025,$460.78,Perth,cancelled
+382,Aisha Khan,10 Apr 2025,,Perth,done
+499, Mei Chen,03/01/2025,146.30,Sydney,DONE
+8,Sara Lopez,17 Sep 2025,$145.66,Perth,done
+434,ravi patel ,06 Jan 2025,$382.31,Perth,done
+491,ravi patel ,14/03/2025,$133.81,Perth,pending
+436,Aisha Khan,31 May 2025,,Perth,cancelled
+257,Aisha Khan,17/06/2025,,Sydney,DONE
+79,Tom Nguyen,14 Nov 2025,267.82,,cancelled
+432,Tom Nguyen,2025-10-27,,Melbourne,cancelled
+244,ravi patel ,08/11/2025,,,pending
+482,Sara Lopez,27 Jul 2025,$7.09,Sydney,done
+233,Aisha Khan,2025-05-28,$188.83,Sydney,DONE
+135,Aisha Khan,25/07/2025,,Melbourne,done
+447,Aisha Khan,06 Jun 2025,,Brisbane,cancelled
+86,Aisha Khan,17 Apr 2025,$443.58,Melbourne,pending
+398,ravi patel ,28/10/2025,35.11,Perth,pending
+246,ravi patel ,29 Apr 2025,25.90,Perth,cancelled
+29,Aisha Khan,21 Oct 2025,$297.75,Perth,pending
+12,ravi patel ,2025-11-28,88.45,,DONE
+299,ravi patel ,2025-06-24,,,cancelled
+58,Tom Nguyen,23 Jul 2025,203.54,Melbourne,DONE
+451,ravi patel ,2025-05-09,$360.16,Sydney,DONE
+160, Mei Chen,2025-06-27,$499.40,Sydney,pending
+124, Mei Chen,2025-11-14,,Melbourne,DONE
+349,Sara Lopez,2025-02-27,,Perth,done
+131,Sara Lopez,04 Jun 2025,,,pending
+68,Tom Nguyen,06 Mar 2025,454.90,,cancelled
+45,ravi patel ,05/12/2025,$273.09,Sydney,pending
+155, Mei Chen,03/09/2025,,Sydney,done
+151, Mei Chen,30 Sep 2025,$473.20,Perth,pending
+469,Aisha Khan,2025-01-21,$485.91,,pending
+278,Aisha Khan,2025-05-22,118.32,Sydney,cancelled
+168,Sara Lopez,13/11/2025,225.52,Sydney,DONE
+390,Sara Lopez,2025-04-22,$193.24,Melbourne,pending
+95,Sara Lopez,21 Apr 2025,,Perth,pending
+172,Tom Nguyen,03 Nov 2025,$467.10,,cancelled
+240, Mei Chen,2025-07-02,$108.53,Sydney,cancelled
+474, Mei Chen,14/07/2025,220.90,Perth,cancelled
+18, Mei Chen,2025-12-11,46.20,Sydney,pending
+255, Mei Chen,2025-08-29,,Sydney,DONE
+175,Aisha Khan,31 Aug 2025,126.36,,pending
+149,ravi patel ,04 Oct 2025,222.92,,pending
+206,Tom Nguyen,02 Jan 2025,,Perth,DONE
+179,Sara Lopez,29/01/2025,338.15,Perth,pending
+127,Tom Nguyen,03/11/2025,$446.93,Brisbane,DONE
+498,Aisha Khan,20 Jan 2025,103.22,Brisbane,done
+276,Sara Lopez,2025-04-27,,,cancelled
+283, Mei Chen,2025-10-21,243.06,Melbourne,pending
+440,ravi patel ,2025-12-10,236.64,Melbourne,DONE
+43, Mei Chen,06/01/2025,$163.52,Perth,done
+318,Sara Lopez,2025-06-29,405.25,Sydney,pending
+147,Tom Nguyen,02 Aug 2025,$496.07,,DONE
+203,ravi patel ,16/08/2025,$30.77,Sydney,done
+22,ravi patel ,2025-09-19,482.95,Melbourne,cancelled
+414,Sara Lopez,2025-05-27,,Sydney,pending
+138, Mei Chen,2025-07-08,$147.14,,pending
+144,Aisha Khan,17/12/2025,,Sydney,done
+161, Mei Chen,2025-09-29,$43.77,Sydney,done
+53,Sara Lopez,07 Oct 2025,,Sydney,DONE
+60, Mei Chen,11 Sep 2025,$116.41,,pending
+236,ravi patel ,29 Dec 2025,$41.66,,cancelled
+415,ravi patel ,11 Jan 2025,$355.96,Brisbane,pending
+311,Sara Lopez,2025-10-03,$161.59,Brisbane,pending
+290,Sara Lopez,19/10/2025,351.30,Perth,cancelled
+477,Sara Lopez,01/01/2025,21.12,Brisbane,cancelled
+24,Aisha Khan,19 Nov 2025,,Perth,pending
+4,ravi patel ,2025-01-16,$273.00,Perth,done
+56,Aisha Khan,06/01/2025,$89.90,Perth,done
+47, Mei Chen,19/07/2025,,Sydney,pending
+71,Sara Lopez,30/03/2025,$104.22,Brisbane,cancelled
+409,Tom Nguyen,2025-08-05,,Sydney,done
+152,ravi patel ,17/05/2025,$187.00,Brisbane,DONE
+388,Tom Nguyen,13/06/2025,,,done
+100,ravi patel ,11/04/2025,,Melbourne,done
+457,Aisha Khan,2025-01-09,350.45,Perth,pending
+10,Sara Lopez,14/02/2025,333.56,Perth,pending
+450,Sara Lopez,03 Jul 2025,$336.17,Perth,done
+63,ravi patel ,05 Mar 2025,480.24,Brisbane,cancelled
+309, Mei Chen,24/05/2025,$246.12,Brisbane,cancelled
+1,Aisha Khan,10 Mar 2025,$383.07,Perth,cancelled
+119, Mei Chen,2025-09-27,$457.64,,done
+262, Mei Chen,08 May 2025,20.97,Brisbane,pending
+473,Tom Nguyen,08/08/2025,$26.75,,done
+211, Mei Chen,01 Nov 2025,,Sydney,DONE
+16, Mei Chen,01/08/2025,,Perth,done
+261, Mei Chen,2025-03-01,476.55,Brisbane,cancelled
+14,ravi patel ,16 Jul 2025,,Perth,done
+243,ravi patel ,2025-06-18,337.38,Brisbane,cancelled
+59,ravi patel ,28/09/2025,$326.18,Sydney,pending
+252,ravi patel ,2025-01-28,300.48,Brisbane,done
+325,Aisha Khan,28/09/2025,444.18,Brisbane,done
+69,Sara Lopez,02 Mar 2025,,Melbourne,DONE
+354,Tom Nguyen,2025-01-30,$482.72,Perth,done
+417,Tom Nguyen,2025-01-30,,Melbourne,done
+363,Tom Nguyen,24 Jul 2025,486.05,Sydney,cancelled
+242,Aisha Khan,06/06/2025,,Sydney,done
+464,Tom Nguyen,29 Jul 2025,,Sydney,pending
+93, Mei Chen,2025-07-25,,Melbourne,done
+194,Sara Lopez,19/03/2025,,Melbourne,pending
+328,Tom Nguyen,09/08/2025,$466.53,Perth,pending
+338,Sara Lopez,2025-07-01,,Melbourne,done
+35,Tom Nguyen,2025-05-30,,Sydney,done
+176,Tom Nguyen,2025-03-23,$458.59,Brisbane,pending
+441,Sara Lopez,2025-02-10,408.20,Melbourne,done
+426,Aisha Khan,07 Aug 2025,$463.17,,done
+297,Sara Lopez,30 Apr 2025,,Brisbane,DONE
+111,Aisha Khan,13 Jan 2025,$49.74,Brisbane,done
+308, Mei Chen,22 Feb 2025,55.96,,pending
+423,ravi patel ,02 Sep 2025,,Sydney,pending
+467, Mei Chen,15 Sep 2025,150.84,Brisbane,pending
+17,Sara Lopez,28 Apr 2025,92.72,Brisbane,done
+267,ravi patel ,2025-06-04,,Sydney,cancelled
+180,Tom Nguyen,2025-12-30,487.72,Sydney,cancelled
+14,ravi patel ,16 Jul 2025,,Perth,done
+2,Aisha Khan,30 Aug 2025,$108.93,Perth,cancelled
+91,Sara Lopez,24/10/2025,292.81,Brisbane,cancelled
+365, Mei Chen,03 Sep 2025,214.03,Sydney,pending
+310,ravi patel ,10/06/2025,$247.23,Perth,done
+334,Aisha Khan,10/01/2025,$147.67,Perth,done
+481,Sara Lopez,31 Mar 2025,,Melbourne,DONE
+199,Sara Lopez,15/07/2025,342.79,,done
+33,ravi patel ,2025-09-30,37.33,Sydney,DONE
+30, Mei Chen,16/09/2025,$308.00,Melbourne,DONE
+177,Sara Lopez,03 Dec 2025,497.92,Perth,cancelled
+156,Aisha Khan,22 Nov 2025,415.37,Sydney,DONE
+293, Mei Chen,15/08/2025,101.64,,pending
+231,Aisha Khan,08/01/2025,,Melbourne,DONE
+50,Aisha Khan,29/05/2025,249.16,,pending
+85,Tom Nguyen,26 Mar 2025,356.57,Brisbane,pending
+301,Tom Nguyen,03/10/2025,$201.60,,done
+269,Aisha Khan,27/11/2025,$428.67,Perth,DONE
+353,Aisha Khan,17 May 2025,71.67,,pending
+36,ravi patel ,2025-06-14,206.27,Brisbane,done
+446,Tom Nguyen,30 Oct 2025,$393.37,Melbourne,DONE
+274,ravi patel ,17 Jun 2025,204.46,Brisbane,done
+40,Aisha Khan,2025-04-07,393.83,Perth,DONE
+141,ravi patel ,2025-05-10,$476.32,Melbourne,done
+468,Tom Nguyen,18/03/2025,,Sydney,cancelled
+165, Mei Chen,04 Nov 2025,$124.09,,done
+487,Aisha Khan,2025-05-22,,,DONE
+412,Sara Lopez,24 Mar 2025,,Sydney,pending
+217,Tom Nguyen,03 Feb 2025,$388.96,,done
+333,Aisha Khan,2025-06-28,,Perth,DONE
+289,Aisha Khan,2025-12-24,23.69,Melbourne,cancelled
+375,ravi patel ,11 Oct 2025,,Sydney,done
+90,ravi patel ,12/06/2025,$127.97,Melbourne,DONE
+227,ravi patel ,06 Jul 2025,$494.69,,done
+463,Tom Nguyen,20 Mar 2025,$421.90,Perth,done
+304,Aisha Khan,2025-10-09,$162.91,Perth,done
+387, Mei Chen,10 Mar 2025,108.09,Sydney,DONE
+483,Sara Lopez,22 Jul 2025,210.13,Perth,pending
+494,ravi patel ,20/07/2025,,Brisbane,pending
+356,ravi patel ,01 Jul 2025,455.86,Melbourne,pending
+182,Tom Nguyen,09/07/2025,327.46,Perth,cancelled
+339,Tom Nguyen,20/09/2025,$121.06,,done
+377,Sara Lopez,2025-06-22,38.94,Perth,cancelled
+251,Tom Nguyen,07 Nov 2025,$486.86,Brisbane,DONE
+39,Tom Nguyen,24/01/2025,11.13,Melbourne,done
+207,Sara Lopez,2025-05-18,,Sydney,cancelled
+3,Sara Lopez,2025-11-08,349.44,Melbourne,pending
+300,Aisha Khan,19 Aug 2025,223.97,Melbourne,done
+136,Tom Nguyen,03/01/2025,$139.62,Brisbane,cancelled
+378,Aisha Khan,06 Jan 2025,,Sydney,done
+118,Sara Lopez,02/06/2025,,,done
+273,Aisha Khan,17/01/2025,443.20,Sydney,pending
+399,Sara Lopez,2025-09-20,$340.00,,pending
+157,Aisha Khan,15 Sep 2025,$157.39,Melbourne,pending
+57,ravi patel ,01 Feb 2025,180.70,Brisbane,pending
+198,Aisha Khan,2025-12-31,45.87,Melbourne,cancelled
+462,Aisha Khan,02/10/2025,,Melbourne,cancelled
+256,Tom Nguyen,18/04/2025,,Melbourne,pending
+139,ravi patel ,04 Aug 2025,$171.27,Perth,cancelled
+16, Mei Chen,01/08/2025,,Perth,done
+212, Mei Chen,04 Jul 2025,439.36,Melbourne,cancelled
+67,ravi patel ,04/05/2025,$452.20,Brisbane,cancelled
+18, Mei Chen,2025-12-11,46.20,Sydney,pending
+128,Tom Nguyen,04 Sep 2025,$421.20,Sydney,done
+497,Tom Nguyen,21/12/2025,164.96,Perth,DONE
+140,ravi patel ,2025-08-06,36.90,Melbourne,done
+270, Mei Chen,09/10/2025,443.74,Melbourne,DONE
+137,Aisha Khan,2025-08-22,244.44,Sydney,pending
+323,ravi patel ,18 Jan 2025,,Sydney,pending
+400,Tom Nguyen,08 Mar 2025,,Sydney,cancelled
+237,Sara Lopez,08 Nov 2025,$470.22,,cancelled
+456,Sara Lopez,2025-01-16,,Melbourne,pending
+10,Sara Lopez,14/02/2025,333.56,Perth,pending
+454,ravi patel ,2025-07-27,,Sydney,DONE
+21, Mei Chen,2025-02-28,159.44,Melbourne,pending
+298, Mei Chen,24 Sep 2025,256.11,Sydney,done
+459, Mei Chen,21/10/2025,,Perth,pending
+169,Tom Nguyen,05/09/2025,185.72,Perth,cancelled
+458,Aisha Khan,19/12/2025,377.61,Perth,pending
+407,Aisha Khan,2025-09-20,199.88,Perth,done
+89,Aisha Khan,24/04/2025,,,cancelled
+158, Mei Chen,2025-11-12,,Brisbane,cancelled
+208,ravi patel ,21 May 2025,213.49,Sydney,done
+229,Aisha Khan,2025-04-30,,Brisbane,cancelled
+49,Aisha Khan,05/05/2025,40.80,Melbourne,done
+4,ravi patel ,2025-01-16,$273.00,Perth,done
+443, Mei Chen,23 Mar 2025,289.19,,cancelled
+489, Mei Chen,12/09/2025,$426.31,,DONE
+109,Sara Lopez,15/04/2025,426.82,Perth,pending
+146,ravi patel ,07/11/2025,,Sydney,pending
+324,Tom Nguyen,2025-12-29,143.62,Perth,done
+348,Aisha Khan,07 Jan 2025,,,cancelled
+202,Sara Lopez,17 Apr 2025,,Melbourne,pending
+44, Mei Chen,02/02/2025,485.06,Sydney,cancelled
+449,Aisha Khan,18 Jun 2025,,Sydney,cancelled
+205,Sara Lopez,04 Mar 2025,,Sydney,pending
+98, Mei Chen,08 Oct 2025,$228.59,Perth,done
+361,ravi patel ,26 Dec 2025,220.90,Sydney,cancelled
+184,Tom Nguyen,2025-08-01,400.51,Perth,pending
+164,Sara Lopez,02/10/2025,$113.60,Sydney,done
+5,ravi patel ,2025-09-28,,Brisbane,DONE
+371, Mei Chen,01/07/2025,$237.94,Sydney,pending
+279,ravi patel ,2025-07-05,,Sydney,done
+72,ravi patel ,28 Mar 2025,181.69,,cancelled
+419,Tom Nguyen,26/02/2025,,Brisbane,done
+42, Mei Chen,09/10/2025,357.25,Melbourne,done
+277,ravi patel ,13 Aug 2025,$95.53,Perth,done
+401, Mei Chen,2025-07-16,$131.10,Melbourne,done
+362,Sara Lopez,2025-10-22,,,cancelled
+488,Aisha Khan,18/07/2025,$319.43,Melbourne,DONE
+425,Tom Nguyen,13/01/2025,$110.67,,pending
+367,Tom Nguyen,18/02/2025,,Melbourne,cancelled
+320,Aisha Khan,2025-04-10,86.55,Perth,DONE
+366, Mei Chen,11 Dec 2025,17.12,Perth,pending
+6,Tom Nguyen,2025-12-13,381.67,,done
+292,Sara Lopez,27 Jan 2025,187.31,Brisbane,done
+352,Sara Lopez,24 Mar 2025,79.34,Brisbane,cancelled
+429,Tom Nguyen,24 Dec 2025,135.69,Perth,DONE
+420,Tom Nguyen,28 Apr 2025,$178.00,Perth,pending
+121,ravi patel ,2025-03-10,$289.92,,pending
+260,Aisha Khan,2025-08-15,397.76,Sydney,done
+478,Tom Nguyen,22/12/2025,156.21,Sydney,pending
+314,Sara Lopez,18/06/2025,$175.42,,cancelled
+437,ravi patel ,16/03/2025,,,done
+153,Sara Lopez,2025-11-07,$292.37,Sydney,done
+329,Aisha Khan,2025-10-09,101.84,Sydney,cancelled
+174, Mei Chen,2025-10-28,,,pending
+345,ravi patel ,13/05/2025,$272.90,Melbourne,DONE
+101,Tom Nguyen,2025-07-18,,Brisbane,DONE
+376,ravi patel ,2025-08-17,$60.75,Brisbane,cancelled
+496,ravi patel ,2025-02-27,430.22,Sydney,done
+102,Aisha Khan,10/02/2025,327.82,,done
+247, Mei Chen,18 Apr 2025,,Melbourne,pending
+430,Aisha Khan,06 Feb 2025,,Perth,done
+210,Tom Nguyen,2025-02-18,$26.12,Sydney,DONE
+272,Aisha Khan,15 Sep 2025,,Sydney,cancelled
+20, Mei Chen,03/12/2025,,Perth,cancelled
+405, Mei Chen,2025-06-09,,Melbourne,cancelled
+188,ravi patel ,31/03/2025,$258.99,Melbourne,DONE
+248,Tom Nguyen,16/08/2025,$77.46,,pending
+197,Sara Lopez,06/10/2025,359.47,Perth,cancelled
+37,Sara Lopez,11 Nov 2025,,Sydney,done
+64,Tom Nguyen,22 Apr 2025,$392.22,Brisbane,cancelled
+421,Tom Nguyen,2025-04-06,$168.52,Melbourne,pending
+48,ravi patel ,21 Feb 2025,307.64,Sydney,done
+355,Tom Nguyen,2025-04-05,,Perth,pending
+391,ravi patel ,08 Apr 2025,262.83,Melbourne,DONE
+394,Aisha Khan,2025-12-05,485.09,Sydney,pending
+129,Sara Lopez,30/09/2025,$246.10,,cancelled
+74,ravi patel ,07/10/2025,,Melbourne,pending
+75, Mei Chen,21/10/2025,,Melbourne,done
+232,ravi patel ,13 Feb 2025,,Sydney,cancelled
+486,Aisha Khan,14 Sep 2025,,Melbourne,DONE
+360,Tom Nguyen,15/07/2025,269.97,Melbourne,pending
+225,ravi patel ,22 May 2025,$370.09,,done
+70,ravi patel ,28/09/2025,,Brisbane,DONE
+19,ravi patel ,26 Feb 2025,96.38,Brisbane,DONE
+162,Aisha Khan,14/12/2025,$260.04,Brisbane,DONE
+397,Aisha Khan,03 Apr 2025,$316.86,Melbourne,cancelled
+439, Mei Chen,23 Mar 2025,468.34,Melbourne,done
+335,Aisha Khan,29/10/2025,,Sydney,cancelled
+23,Sara Lopez,2025-03-16,,Perth,DONE
+322,Tom Nguyen,11/01/2025,,,cancelled
+476,Tom Nguyen,22/09/2025,$402.21,Sydney,pending
+5,ravi patel ,2025-09-28,,Brisbane,DONE
+266,Aisha Khan,06/07/2025,,Brisbane,DONE
+122, Mei Chen,05 Jul 2025,,,DONE
+200,Tom Nguyen,04/05/2025,,Brisbane,DONE
+224,ravi patel ,2025-02-12,$364.44,Sydney,done
+342, Mei Chen,18 May 2025,$354.54,,DONE
+305,Aisha Khan,28/08/2025,,Sydney,cancelled
+331, Mei Chen,09/08/2025,,Perth,pending
+15,Tom Nguyen,04/09/2025,,Perth,pending
+219,Tom Nguyen,08 Jul 2025,22.06,Melbourne,cancelled
+282,Sara Lopez,11/03/2025,,Brisbane,pending
+452,Sara Lopez,04/05/2025,$436.29,Sydney,cancelled
+13,Tom Nguyen,27 Jul 2025,$424.49,Brisbane,done
+254,Sara Lopez,2025-01-05,271.28,Melbourne,DONE
+264,Aisha Khan,06/05/2025,,Sydney,done
+9,ravi patel ,2025-09-03,,Brisbane,pending
+84,Aisha Khan,2025-09-19,$214.19,Perth,done
+196,ravi patel ,2025-01-07,477.16,Melbourne,DONE
+379, Mei Chen,05/05/2025,$305.19,Brisbane,pending
+455, Mei Chen,20/05/2025,,,DONE
+259,Aisha Khan,2025-08-15,$375.07,,done
+87,Sara Lopez,28 Aug 2025,$29.62,Brisbane,pending
+54,ravi patel ,03/06/2025,,Brisbane,done
+332,Sara Lopez,27 Oct 2025,,Brisbane,done
+125,Aisha Khan,2025-05-14,317.91,Sydney,DONE
+215,Tom Nguyen,18/05/2025,,Melbourne,cancelled
+167,Sara Lopez,2025-07-11,,,done
+234,Tom Nguyen,07 Apr 2025,,,cancelled
+389,Sara Lopez,2025-12-19,$208.33,Brisbane,done
+7, Mei Chen,06 Apr 2025,496.31,,cancelled
+466, Mei Chen,2025-09-01,221.02,Melbourne,pending
+108,Aisha Khan,09 Nov 2025,486.32,Sydney,done
+319,Sara Lopez,15/03/2025,,Brisbane,DONE
+418,ravi patel ,2025-05-19,,Brisbane,cancelled
+383,Aisha Khan,2025-10-14,,Sydney,DONE
+159,ravi patel ,2025-01-12,$74.02,,done
+28, Mei Chen,29 Mar 2025,313.37,Melbourne,DONE
+358,Aisha Khan,24/02/2025,,Perth,pending
+326,Tom Nguyen,17 May 2025,98.75,Brisbane,done
+105,ravi patel ,18 Jun 2025,,Sydney,done
+193,Tom Nguyen,2025-10-11,350.95,Brisbane,pending
+32, Mei Chen,17 May 2025,,,cancelled
+368,Tom Nguyen,26 Oct 2025,$384.24,Sydney,done
+253,Aisha Khan,2025-02-04,,Melbourne,done
+154, Mei Chen,16/09/2025,266.60,,cancelled
+344,Tom Nguyen,02 Sep 2025,114.24,Melbourne,pending
+110,ravi patel ,20/02/2025,$268.08,Perth,cancelled
+263,Tom Nguyen,21 Aug 2025,,Melbourne,cancelled
+218,Aisha Khan,22 Oct 2025,61.19,Brisbane,pending
+117,Sara Lopez,2025-06-26,,Brisbane,cancelled
+336,Tom Nguyen,26 Nov 2025,,Perth,pending
+46,Sara Lopez,11/02/2025,49.26,Brisbane,DONE
+341,Tom Nguyen,14/11/2025,$137.97,Perth,done
+20, Mei Chen,03/12/2025,,Perth,cancelled
+55,Tom Nguyen,16/12/2025,,,cancelled
+435,ravi patel ,15/03/2025,,,cancelled
+113,Sara Lopez,14/12/2025,,Sydney,pending
+312,Tom Nguyen,15 Oct 2025,,,DONE
+15,Tom Nguyen,04/09/2025,,Perth,pending
+107,Tom Nguyen,30 Jun 2025,,Melbourne,pending
+307,ravi patel ,16/03/2025,485.77,Perth,DONE
+145,Tom Nguyen,2025-07-19,,Perth,done
+275, Mei Chen,2025-04-11,,Sydney,DONE
+245,Aisha Khan,04/06/2025,$463.93,Sydney,cancelled
+280,Sara Lopez,14 Aug 2025,329.71,Melbourne,DONE
+103,Tom Nguyen,2025-09-26,26.19,Melbourne,DONE
+235,Sara Lopez,2025-07-06,,,cancelled
+80,Aisha Khan,27/07/2025,,Perth,DONE
+181,ravi patel ,2025-04-27,$487.56,Perth,cancelled
+192,Sara Lopez,27 Mar 2025,$283.02,Perth,cancelled
+493,Tom Nguyen,09/08/2025,,Sydney,cancelled
+239,Aisha Khan,07 Nov 2025,,Perth,cancelled
+369,Aisha Khan,2025-07-12,,Perth,done
+340,Sara Lopez,21/10/2025,282.44,Melbourne,pending
+83,Sara Lopez,19/03/2025,$244.85,Melbourne,pending
+238, Mei Chen,06/11/2025,,,cancelled
+317,Aisha Khan,03 Feb 2025,$105.86,Perth,done
+442,Tom Nguyen,10/05/2025,77.54,,DONE
+465, Mei Chen,2025-10-13,430.98,,pending
+25,ravi patel ,04 Dec 2025,216.02,Melbourne,pending
+393,ravi patel ,21 Jan 2025,295.64,,cancelled
+27,ravi patel ,2025-03-08,,,cancelled
+94,Aisha Khan,27/04/2025,164.08,Melbourne,done
+484,Tom Nguyen,07 Dec 2025,$255.96,Sydney,pending
+343,Tom Nguyen,14 Jun 2025,,,cancelled
+171,Tom Nguyen,2025-11-26,192.86,Melbourne,cancelled
+201, Mei Chen,26/04/2025,,Melbourne,pending
+288,Tom Nguyen,25 Sep 2025,$437.61,Sydney,cancelled
+346,Sara Lopez,2025-08-22,$366.17,Brisbane,DONE
+228,Tom Nguyen,28 Dec 2025,,Sydney,DONE
+115,Sara Lopez,01/12/2025,,,done
+189,Aisha Khan,25 Dec 2025,,Sydney,cancelled
+220, Mei Chen,21 Jun 2025,459.96,Brisbane,DONE
+380,Aisha Khan,2025-05-28,$10.20,Sydney,done
+223,ravi patel ,09/10/2025,289.02,Brisbane,cancelled
+453,ravi patel ,2025-09-05,260.64,Melbourne,cancelled
+408,Sara Lopez,31/03/2025,,Sydney,done
+61, Mei Chen,2025-11-27,,Sydney,DONE
+302,Tom Nguyen,2025-10-28,$297.26,Brisbane,pending
+284, Mei Chen,2025-01-10,$116.77,Brisbane,cancelled
+65,Aisha Khan,2025-09-21,,Brisbane,done
+114,Tom Nguyen,23 Jun 2025,,Melbourne,DONE
+287,Aisha Khan,08/11/2025,$164.72,Perth,pending
+364,Aisha Khan,2025-03-07,,Sydney,pending
+295,Aisha Khan,2025-12-02,$493.85,Brisbane,pending
+17,Sara Lopez,28 Apr 2025,92.72,Brisbane,done
+286,Sara Lopez,2025-11-10,,Perth,pending
+402,Aisha Khan,16 Jun 2025,$94.65,Sydney,cancelled
+19,ravi patel ,26 Feb 2025,96.38,Brisbane,DONE
+241, Mei Chen,2025-08-12,322.76,,done
+291,Tom Nguyen,07/01/2025,,Sydney,pending
+337, Mei Chen,2025-08-13,,Melbourne,done
+92,Tom Nguyen,2025-09-27,,Brisbane,pending
+143,Tom Nguyen,25 Jan 2025,,Melbourne,pending
+271, Mei Chen,03 Sep 2025,22.31,Brisbane,pending
+183,ravi patel ,2025-10-05,287.86,Melbourne,cancelled
+41,Tom Nguyen,2025-12-15,$423.28,,pending
+191,Tom Nguyen,24 Jan 2025,$11.02,Brisbane,cancelled
+470, Mei Chen,21/01/2025,,Sydney,done
+294,Sara Lopez,30 Mar 2025,247.76,Melbourne,cancelled
+438,Tom Nguyen,06 Nov 2025,$199.50,Melbourne,pending
+385,Sara Lopez,10/04/2025,$143.46,Perth,cancelled
+395,Sara Lopez,17/09/2025,$331.93,Sydney,cancelled
+34, Mei Chen,18/05/2025,$421.36,Brisbane,done
+495,Aisha Khan,19/10/2025,$65.94,Perth,DONE
+133,Sara Lopez,20/08/2025,69.82,Sydney,pending
+281,Tom Nguyen,11/06/2025,$451.12,,pending
+76, Mei Chen,15 Aug 2025,$155.88,,cancelled
+492,Sara Lopez,21/01/2025,,Perth,cancelled
+359,ravi patel ,15 May 2025,149.13,Perth,done
+315,Tom Nguyen,18/04/2025,,Sydney,done
+313,Aisha Khan,2025-03-27,270.60,Brisbane,done
+97,ravi patel ,11/09/2025,192.06,Brisbane,cancelled
+461,Aisha Khan,27/06/2025,,Sydney,DONE
+126, Mei Chen,19/09/2025,$187.21,Sydney,DONE
+78, Mei Chen,25 Aug 2025,,Sydney,cancelled
+350,Aisha Khan,09/11/2025,,Sydney,DONE
+38,Tom Nguyen,17/05/2025,445.93,Brisbane,done
+209,Sara Lopez,2025-08-21,,Brisbane,DONE
+249, Mei Chen,20/09/2025,,,pending
+11,Sara Lopez,08 Sep 2025,,,cancelled
+66,Sara Lopez,17 May 2025,456.87,Melbourne,cancelled
+178,ravi patel ,12/07/2025,$408.99,,DONE
+2,Aisha Khan,30 Aug 2025,$108.93,Perth,cancelled
+403,Tom Nguyen,10/07/2025,$389.78,Melbourne,cancelled
+222,ravi patel ,24/06/2025,306.37,Brisbane,cancelled
+427,Aisha Khan,13 Mar 2025,372.71,Melbourne,done
