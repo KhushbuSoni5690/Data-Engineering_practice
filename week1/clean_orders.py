@@ -36,5 +36,7 @@ cleaned_df['amount'] = cleaned_df['amount'].fillna(avg_amount_rounded)
 
 print(cleaned_df)
 
-
+# Save the clean data in the data folder
+cleaned_df.to_parquet("data/orders_clean.parquet", index=False)
+print("Success! Cleaned data saved to data/orders_clean.parquet")
 
