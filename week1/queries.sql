@@ -55,4 +55,40 @@ SELECT order_month,
 order by order_month;
 
 -- each customers consequtive orders with lag
+with orders_with_previous AS (
+SELECT customer_name,
+       order_id,
+       order_date,
+       LAG(order_date) OVER (
+           PARTITION BY customer_name
+           ORDER BY order_date, order_id
+       ) AS previous_order_date
+FROM 'data/orders_clean.parquet'
+
+)
+select *, 
+DATE_DIFF('day', previous_order_date, order_date) AS days_between_orders 
+from orders_with_previous
+ORDER BY customer_name, order_date, order_id
+;
+
+-- remove duplicates using ROW_NUMBER()
+-- Remove duplicate order IDs, keeping the first occurrence from the raw CSV.
+WITH raw_orders AS (
+    SELECT *,
+           ROW_NUMBER() OVER () AS source_row
+    FROM 'data/orders_raw.csv'
+),
+ranked_orders AS (
+    SELECT *,
+           ROW_NUMBER() OVER (
+               PARTITION BY order_id
+               ORDER BY source_row
+           ) AS order_rank
+    FROM raw_orders
+)
+SELECT *
+FROM ranked_orders
+WHERE order_rank = 1
+ORDER BY source_row;
 
