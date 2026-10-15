@@ -92,3 +92,14 @@ FROM ranked_orders
 WHERE order_rank = 1
 ORDER BY source_row;
 
+
+
+-- city revenue comparison with pyspark and duckdb week2- session 3
+SELECT c.city,
+       ROUND(SUM(o.amount), 2) AS city_revenue
+FROM 'data/orders_big.parquet' AS o
+INNER JOIN 'data/customers.parquet' AS c
+    ON o.customer_id = c.customer_id
+WHERE o.status = 'done'
+GROUP BY c.city
+ORDER BY c.city;
