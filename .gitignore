@@ -1,2 +1,7 @@
 venv/
-
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+/data/orders_clean_spark/
+/data/orders_big_csv/
