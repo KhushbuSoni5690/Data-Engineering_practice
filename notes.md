@@ -8,3 +8,4 @@ I understood the purpose of pytest by creating small DataFrames and checking tha
 I was confused about pytest and command-line arguments, but I now understand how they fit into building and running a pipeline.
 Running Spark in Ubuntu helped me save Parquet files after the write operation failed in Windows.
 I want to understand pytest code better and practise more Spark functions.
+the built in function was faster because it works directly in its engine and can optimise its instructions. my python function took longer becaise spark sends values to a sperate python worker to run the function, then receive the results,, that takes  extrra time and spark cannot optimise python code inside my function same way.

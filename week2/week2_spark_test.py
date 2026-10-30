@@ -1,171 +1,212 @@
-from pyspark.sql import SparkSession, Window
-from pyspark.sql.functions import col, row_number
-from pyspark.sql.functions import date_trunc
 from time import perf_counter
-from pyspark.sql.functions import coalesce
-from pyspark.sql.functions import sum, avg, round, lag, datediff
 
-spark = SparkSession.builder.master("local[*]").appName("test").getOrCreate()
+from pyspark.sql import SparkSession, Window
+from pyspark.sql import functions as F
+
+spark = (
+    SparkSession.builder
+    .master("local[*]")
+    .appName("Week2SparkPractice")
+    .getOrCreate()
+)
 print(spark.version)
 
-orders = spark.read.parquet("data\orders_big.parquet")
+orders = spark.read.parquet("data/orders_big.parquet")
 orders.printSchema()
 print(orders.count())
 
-# # orders.select("order_id", "customer_id", "amount").show(5)
-# filtered_orders = orders.filter(col("amount") > 500)
-# filtered_orders.show(5)
-# print("orders grater than 500:", filtered_orders.count())
+# Session 1: DataFrame basics
 
+orders.select("order_id", "customer_id", "amount").show(5)
 
-# done_orders = orders.filter(col("status") == "done")
-# print("done orders", done_orders.count())
+filtered_orders = orders.filter(F.col("amount") > 500)
+filtered_orders.show(5)
+print("Orders greater than 500:", filtered_orders.count())
 
-# pending_orders = orders.filter(col("status") == "pending")
-# print("pending orders", pending_orders.count())
+done_orders = orders.filter(F.col("status") == "done")
+print("Done orders:", done_orders.count())
 
-# amount_with_tex = orders.withColumn("texed_amount", 
-#                                     col("amount")* 1.10)
-# # print(amount_with_tex.show(5))
+pending_orders = orders.filter(F.col("status") == "pending")
+print("Pending orders:", pending_orders.count())
 
-# amount_with_tex.show(5)
+amount_with_tax = orders.withColumn(
+    "taxed_amount",
+    F.col("amount") * 1.10,
+)
+amount_with_tax.show(5)
 
-# ## adding order_month column
-# orders_with_month = orders.withColumn("order_month",
-#                                        date_trunc("month", col("order_date")))
-# orders_with_month.show(5)
+orders_with_month = orders.withColumn(
+    "order_month",
+    F.date_trunc("month", F.col("order_date")),
+)
+orders_with_month.show(5)
 
-# # column renamed by .withcolumnrenamed 
-# renamed_orders = orders.withColumnRenamed("amount", "order_amount")
-# renamed_orders.show(5)
+renamed_orders = orders.withColumnRenamed("amount", "order_amount")
+renamed_orders.show(5)
 
-# orders.groupBy("status").count().orderBy(col("count").desc()).show()
-# start = perf_counter()
+orders.groupBy("status").count().orderBy(
+    F.col("count").desc()
+).show()
 
-# # understanding of transformation and action in spark
-# done_amounts = orders.filter(col("status") == "done").filter(col("amount") > 100).select("customer_id", "amount").withColumn("double_amount", col("amount") * 2)
-# print("Plan building:", perf_counter() - start, "seconds")
+# Session 2: Transformations, actions and execution plans
 
-# start = perf_counter()
-# done_amounts.show(5)
-# print("Show:", perf_counter() - start, "seconds")
-# done_amounts.explain()
+start = perf_counter()
 
-# customer_counts = done_amounts.groupBy("customer_id").count()
-# customer_counts.explain()
+done_amounts = (
+    orders
+    .filter(F.col("status") == "done")
+    .filter(F.col("amount") > 100)
+    .select("customer_id", "amount")
+    .withColumn("double_amount", F.col("amount") * 2)
+)
+print("Plan building:", perf_counter() - start, "seconds")
 
-# customer_counts.explain(True)
-# customer_counts.show(5)
+start = perf_counter()
+done_amounts.show(5)
+print("Show:", perf_counter() - start, "seconds")
+done_amounts.explain()
 
-# print("Spark UI:", spark.sparkContext.uiWebUrl)
-# input("Press Enter when you have finished exploring the Spark UI: ")
+customer_counts = done_amounts.groupBy("customer_id").count()
+customer_counts.explain()
+customer_counts.explain(True)
+customer_counts.show(5)
 
-# Session 3 of week 2 begins
-# using aggregation 
-# category_summary = orders.filter(col("status") == "done").groupBy("category").agg(
-#     round(sum("amount"), 2).alias("total_amount"),
-#     round(avg("amount"), 2).alias("average_amount")
-# )
+print("Spark UI:", spark.sparkContext.uiWebUrl)
+input("Press Enter when you have finished exploring the Spark UI: ")
 
-# category_summary.show()
+# Session 3: Aggregations and joins
 
-# # customers data loading and start joins
-# customers = spark.read.parquet("data/customers.parquet")
-# customers.printSchema()
-# customers.show(5)
+category_summary = (
+    orders
+    .filter(F.col("status") == "done")
+    .groupBy("category")
+    .agg(
+        F.round(F.sum("amount"), 2).alias("total_amount"),
+        F.round(F.avg("amount"), 2).alias("average_amount"),
+    )
+)
+category_summary.show()
 
-# orders_with_customers = orders.join(customers, on="customer_id", how="inner")
-# orders_with_customers.show(5)
+customers = spark.read.parquet("data/customers.parquet")
+customers.printSchema()
+customers.show(5)
 
-# city_summary = (
-#     orders_with_customers
-#     .filter(col("status") == "done")
-#     .groupBy("city")
-#     .agg(round(sum("amount"), 2).alias("city_revenue"))
-# )
-# city_summary.show()
+orders_with_customers = orders.join(
+    customers,
+    on="customer_id",
+    how="inner",
+)
+orders_with_customers.show(5)
 
-# orders_left = orders.join(customers, on = "customer_id", how = "left")
-# orders_left.show(5)
+city_summary = (
+    orders_with_customers
+    .filter(F.col("status") == "done")
+    .groupBy("city")
+    .agg(F.round(F.sum("amount"), 2).alias("city_revenue"))
+)
+city_summary.show()
 
-# from pyspark.sql.functions import max
+orders_left = orders.join(
+    customers,
+    on="customer_id",
+    how="left",
+)
+orders_left.show(5)
 
-# customers.agg(max("customer_id").alias("largest_customer_id")).show()
-# extra_orders = (
-#     orders.orderBy("order_id").limit(3)
-#     .withColumn("customer_id", col("order_id") + 10000)
-# )
+customers.agg(
+    F.max("customer_id").alias("largest_customer_id")
+).show()
 
-# extra_orders.select("order_id", "customer_id").show()
-# test_orders = orders.unionByName(extra_orders)
+extra_orders = (
+    orders.orderBy("order_id").limit(3)
+    .withColumn("customer_id", F.col("order_id") + 10000)
+)
+extra_orders.select("order_id", "customer_id").show()
 
-# test_inner = test_orders.join(customers, on = "customer_id", how = "inner")
-# test_left = test_orders.join(customers, on = "customer_id", how = "left")
+test_orders = orders.unionByName(extra_orders)
 
-# print("Inner:", test_inner.count())
-# print("Left:", test_left.count())
+test_inner = test_orders.join(
+    customers, on="customer_id", how="inner"
+)
+test_left = test_orders.join(
+    customers, on="customer_id", how="left"
+)
 
-# test_left.filter(col("customer_id") > 10000).select(
-#     "order_id", "customer_id", "name", "city"
-# ).show()
+print("Inner:", test_inner.count())
+print("Left:", test_left.count())
 
-# customer_spend = ( orders_with_customers
-#                   .filter(col("status") == "done")
-#                   .groupBy("customer_id", "name")
-#                   .agg(round(sum("amount"),2).alias("total_spend"))
-#                   .orderBy(col("total_spend").desc())
-# )
+test_left.filter(F.col("customer_id") > 10000).select(
+    "order_id", "customer_id", "name", "city"
+).show()
 
-# customer_spend.show(10)
-# orders_with_customers.explain()
-# # # Join plan: BroadcastHashJoin, Inner, BuildRight (customers).
-# city_summary.orderBy("city").show()
+customer_spend = (
+    orders_with_customers
+    .filter(F.col("status") == "done")
+    .groupBy("customer_id", "name")
+    .agg(F.round(F.sum("amount"), 2).alias("total_spend"))
+    .orderBy(F.col("total_spend").desc())
+)
+customer_spend.show(10)
 
+orders_with_customers.explain()
+# Join plan observed: BroadcastHashJoin, Inner, BuildRight (customers).
 
-# # session 3 week2 1. top 3 orders by amount
-# customer_window = Window.partitionBy("customer_id").orderBy(
-#     col("amount").desc(),
-#     col("order_id")
-# )
-# row_number().over(customer_window)
+city_summary.orderBy("city").show()
 
-# ranked_orders = orders.withColumn("order_rank",row_number().over(customer_window))
-# top_orders = ranked_orders.filter(col("order_rank")<=3)
-# top_orders.orderBy("customer_id", "order_rank").show(9)
+# Session 4: Window functions
 
-# # session 3 week 2 2. runnibg total for each customer
-# spend_window = (
-#     Window.partitionBy("customer_id")
-#     .orderBy("order_date", "order_id")
-#     .rowsBetween(Window.unboundedPreceding, Window.currentRow)
-# )
-# done_orders = orders.filter(col("status") == "done")
-# orders_with_running_total = done_orders.withColumn(
-#     "running_total",
-#     round(sum("amount").over(spend_window), 2)
-# )
+# Top 3 orders by amount for each customer.
+customer_window = Window.partitionBy("customer_id").orderBy(
+    F.col("amount").desc(),
+    F.col("order_id"),
+)
 
-# orders_with_running_total.select(
-#     "customer_id", "order_id", "order_date", "amount", "running_total"
-# ).orderBy("customer_id", "order_date", "order_id").show(10)
+ranked_orders = orders.withColumn(
+    "order_rank",
+    F.row_number().over(customer_window),
+)
+top_orders = ranked_orders.filter(F.col("order_rank") <= 3)
+top_orders.orderBy("customer_id", "order_rank").show(9)
 
-# # 3. find the days between each customer's consecutive orders using lag()
-# order_window = Window.partitionBy("customer_id").orderBy(
-#     "order_date","order_id"
-# )
-# orders_with_previous = orders.withColumn(
-#     "previous_order_date",lag("order_date").over(order_window)
-# )
-# orders_with_gaps = orders_with_previous.withColumn(
-#     "days_between_orders",
-#     datediff(col("order_date"), col("previous_order_date"))
-# )
-# orders_with_gaps.select(
-#     "customer_id", "order_date", "previous_order_date", "days_between_orders"
-# ).orderBy("customer_id", "order_date", "order_id").show(10)
+# Running total of completed-order spending for each customer.
+spend_window = (
+    Window.partitionBy("customer_id")
+    .orderBy("order_date", "order_id")
+    .rowsBetween(Window.unboundedPreceding, Window.currentRow)
+)
 
-# explore spark SQL
-# orders dataframe as temperory view
+done_orders = orders.filter(F.col("status") == "done")
+
+orders_with_running_total = done_orders.withColumn(
+    "running_total",
+    F.round(F.sum("amount").over(spend_window), 2),
+)
+
+orders_with_running_total.select(
+    "customer_id", "order_id", "order_date", "amount", "running_total"
+).orderBy("customer_id", "order_date", "order_id").show(10)
+
+# Days between each customer's consecutive orders.
+order_window = Window.partitionBy("customer_id").orderBy(
+    "order_date", "order_id"
+)
+
+orders_with_previous = orders.withColumn(
+    "previous_order_date",
+    F.lag("order_date").over(order_window),
+)
+
+orders_with_gaps = orders_with_previous.withColumn(
+    "days_between_orders",
+    F.datediff(F.col("order_date"), F.col("previous_order_date")),
+)
+
+orders_with_gaps.select(
+    "customer_id", "order_date", "previous_order_date",
+    "days_between_orders"
+).orderBy("customer_id", "order_date", "order_id").show(10)
+
+# Spark SQL: register the DataFrame as a temporary view.
 
 orders.createOrReplaceTempView("orders_view")
 
@@ -189,109 +230,105 @@ spark.sql("""
 """).show()
 
 spark.sql("""
-    with ranked as (
-        select customer_id,
+    WITH ranked AS (
+        SELECT customer_id,
                order_id,
                amount,
-                ROW_NUMBER() OVER (
-                    PARTITION BY customer_id
-                    ORDER BY amount DESC, order_id
-                
-                ) as order_rank
-        from orders_view
+               ROW_NUMBER() OVER (
+                   PARTITION BY customer_id
+                   ORDER BY amount DESC, order_id
+               ) AS order_rank
+        FROM orders_view
     )
-
-    select * 
-    from ranked 
-    where order_rank <= 3 
-    order by customer_id, order_rank
-
+    SELECT *
+    FROM ranked
+    WHERE order_rank <= 3
+    ORDER BY customer_id, order_rank
 """).show(9)
 
+# Practice exercise to revisit:
+# Find the top 2 customers by total spending within each category,
+# counting only orders with status 'done'.
+# Use CTEs and a window function.
+# Break spending ties using the smaller customer_id first.
+# Return category, customer_id, total_spend and customer_rank.
+# Sort by category and customer_rank.
 
-#Practice question: Using orders_view, find the top 2 customers by total 
-# spending within each product category, counting only orders with status 'done'.
-#Use a CTE and a window function. If customers have equal total spending, 
-#put the customer with the smaller customer_id first.
-#Return: category, customer_id, total_spend, and customer_rank.
-# Sort the result by category and customer rank.
-
+# Original unfinished attempt, kept for practice:
 # spark.sql("""
-#     with total_spending_customer as (
-#         select 
-#         category, customer_id,
-#         round(sum(amount), 2) as total_spend
-#         ROW_NUMBER() OVER (PARTITION BY CUSTOMER_ID
-#             order by amount desc, order_id
-#             ) as customer_rank
-#         from order_view
-#         )
-
-#     select category, customer_id, total_spend, customer_rank
-#     from total_spending_customer
-#     where customer_rank <=2
-#     order by category, customer_rank
-
+#     WITH total_spending_customer AS (
+#         SELECT category,
+#                customer_id,
+#                ROUND(SUM(amount), 2) AS total_spend
+#                ROW_NUMBER() OVER (
+#                    PARTITION BY customer_id
+#                    ORDER BY amount DESC, order_id
+#                ) AS customer_rank
+#         FROM order_view
+#     )
+#     SELECT category, customer_id, total_spend, customer_rank
+#     FROM total_spending_customer
+#     WHERE customer_rank <= 2
+#     ORDER BY category, customer_rank
 # """).show(6)
 
-
-#Lets start with an easier one 
-#Exercise: Using orders_view, find the top 2 highest-amount orders in each category, considering only orders with status 'done'.
-#Use one CTE and ROW_NUMBER(). If amounts tie, put the smaller order_id first.
-#Return: category, order_id, amount, and order_rank.
-#Sort by category and order rank. No totals or grouping needed for this exercise.
-#
-spark.sql ("""
-    with highest_order as (
-        select category, order_id, amount, ROW_NUMBER() OVER( PARTITION BY CATEGORY
-        ORDER BY AMOUNT DESC, ORDER_ID ) AS order_rank
-        FROM ORDERS_VIEW
-        where status = "done"
+# Find the top 2 highest-amount completed orders in each category.
+spark.sql("""
+    WITH highest_order AS (
+        SELECT category,
+               order_id,
+               amount,
+               ROW_NUMBER() OVER (
+                   PARTITION BY category
+                   ORDER BY amount DESC, order_id
+               ) AS order_rank
+        FROM orders_view
+        WHERE status = 'done'
     )
-
-select * from highest_order
-where order_rank <= 2
-order by category, order_rank
-
+    SELECT *
+    FROM highest_order
+    WHERE order_rank <= 2
+    ORDER BY category, order_rank
 """).show(12)
 
-# # week 3 session 5 begins:
+# Week 3, session 5: missing amounts
 
-# missing orders count
-missing_amount_orders =  orders.filter(col("amount").isNull())
-print("missing orders count:", missing_amount_orders.count())
+missing_amount_orders = orders.filter(F.col("amount").isNull())
+print("Missing amounts count:", missing_amount_orders.count())
 
-# droping all missing amount columns:
-orders_dropped = orders.na.drop(subset = ["amount"])
-print("orders dropped count:", orders_dropped.count())
+# Drop rows with missing amounts.
+orders_dropped = orders.na.drop(subset=["amount"])
+print("Orders after dropping missing amounts:", orders_dropped.count())
 
-# replacing missing amount with 0
-order_filled_zero = orders.na.fill({"amount":0})
-print("orders filled with 0:", order_filled_zero.count())
+# Replace missing amounts with 0.
+orders_filled_zero = orders.na.fill({"amount": 0})
+print("Orders filled with 0:", orders_filled_zero.count())
 
-# replacing missing values with average
+# Calculate the category averages.
 category_averages = orders.groupBy("category").agg(
-    avg("amount").alias("category_avg"))
+    F.avg("amount").alias("category_avg")
+)
 category_averages.show()
 
-# join the category_avarages with orders.
 orders_with_avg = orders.join(
     category_averages,
     on="category",
-    how="left"
+    how="left",
 )
-
 orders_with_avg.select("category", "amount", "category_avg").show(5)
 
 orders_filled_avg = orders_with_avg.withColumn(
     "amount",
-    coalesce(col("amount"),col("category_avg"))
+    F.coalesce(F.col("amount"), F.col("category_avg")),
 )
 
-print("orders filled with category's avg values:", orders_filled_avg.count())
-
-print("orders with missing amount values:", orders_filled_avg.filter(
-    col("amount").isNull()).count())
-
+print(
+    "Orders filled with category averages:",
+    orders_filled_avg.count(),
+)
+print(
+    "Orders still missing amounts:",
+    orders_filled_avg.filter(F.col("amount").isNull()).count(),
+)
 
 spark.stop()

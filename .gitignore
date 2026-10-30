@@ -5,3 +5,5 @@ __pycache__/
 .pytest_cache/
 /data/orders_clean_spark/
 /data/orders_big_csv/
+/data/orders_clean_spark_coalesce1/
+/data/orders_clean_spark_repartition4/
