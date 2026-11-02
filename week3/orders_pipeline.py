@@ -15,7 +15,7 @@ def load_data(spark: SparkSession, input_path: str) -> DataFrame:
 
 def clean_orders(df: DataFrame) -> DataFrame:
     logging.info("Removing duplicate order IDs and cleaning status values")
-    cleaned = df
+    cleaned = df.dropDuplicates(["order_id"])
 
     cleaned = cleaned.withColumn(
         "status",
@@ -26,16 +26,6 @@ def clean_orders(df: DataFrame) -> DataFrame:
         "is_amount_missing",
         F.col("amount").isNull()
     )
-
-    # missing_amount_count = cleaned.filter(
-    #     F.col("amount").isNull()
-    # ).count()
-
-    # if missing_amount_count > 0:
-    #     logging.warning(
-    #         "Found %s orders with missing amounts; keeping them as null",
-    #         missing_amount_count
-    #     )
 
     return cleaned
 
@@ -82,6 +72,7 @@ def main() -> None:
     parser.add_argument("--input", required=True, help="Input Parquet path")
     parser.add_argument("--output", required=True, help="Output Parquet folder")
 
+    parser.add_argument("--keep-ui-open", action="store_true")
     args = parser.parse_args()
 
     spark = (
@@ -96,40 +87,15 @@ def main() -> None:
         orders = load_data(spark, args.input)
         cleaned_orders = clean_orders(orders)
         transformed_orders = transform_orders(cleaned_orders)
-        # logging.info(
-        #     "Partitions before saving: %s",
-        #     transformed_orders.rdd.getNumPartitions()
-        # )
-        # logging.info(
-        #     "Configured shuffle partitions: %s",
-        #     spark.conf.get("spark.sql.shuffle.partitions")
-        # )
         save_data(transformed_orders, args.output)
         elapsed = perf_counter() - start_time
         logging.info("Pipeline with write-time observation: %.2f seconds", elapsed)
-        # save_data(
-        #     transformed_orders.coalesce(1),
-        #     args.output + "_coalesce1"
-        # )
-        # save_data(
-        #     transformed_orders.repartition(4),
-        #     args.output + "_repartition4"
-        # )
-        saved_orders = spark.read.parquet(args.output)
 
-        # saved_orders.select(
-        #     "amount", "is_amount_missing"
-        # ).show(5)
-
-        # saved_orders.filter(
-        #     F.col("is_amount_missing")
-        # ).select("amount", "is_amount_missing").show(5)
-
-        print("Spark UI:", spark.sparkContext.uiWebUrl)
-        input("Press Enter to stop Spark...")
+        if args.keep_ui_open:
+            print("Spark UI:", spark.sparkContext.uiWebUrl)
+            input("Press Enter to stop Spark...")
     finally:
         spark.stop()
-
 
 if __name__ == "__main__":
     main()
