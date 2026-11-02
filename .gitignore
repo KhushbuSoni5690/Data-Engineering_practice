@@ -7,7 +7,5 @@ __pycache__/
 /data/orders_big_csv/
 /data/orders_clean_spark_coalesce1/
 /data/orders_clean_spark_repartition4/
-artifacts/
-spark-warehouse/
-
+data/
 /new/
