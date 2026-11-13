@@ -1,25 +1,7 @@
-from collections.abc import Iterator
 from datetime import date, datetime
 import pytest
 from pyspark.sql import SparkSession
 from week3.orders_pipeline import clean_orders, transform_orders
-
-
-@pytest.fixture(scope="module")
-def spark() -> Iterator[SparkSession]:
-    session = (
-        SparkSession.builder
-        .master("local[2]")
-        .appName("OrdersPipelineTests")
-        .config("spark.sql.shuffle.partitions", "2")
-        .getOrCreate()
-    )
-
-    try:
-        yield session
-    finally:
-        session.stop()
-
 
 def test_clean_orders_removes_duplicates(spark: SparkSession) -> None:
     df = spark.createDataFrame(

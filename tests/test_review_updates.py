@@ -19,14 +19,6 @@ from week3.orders_pipeline import clean_orders, transform_orders, save_data
 os.environ["PYSPARK_PYTHON"] = sys.executable
 
 
-@pytest.fixture(scope="module")
-def spark() -> SparkSession:
-    session = (SparkSession.builder.master("local[2]").appName("ReviewTests")
-               .config("spark.sql.shuffle.partitions", "2").getOrCreate())
-    yield session
-    session.stop()
-
-
 def test_pandas_null_policy_and_duplicates() -> None:
     frame = pd.DataFrame({
         "order_id": [1, 1, 2, 3], "customer_name": [" alice "] * 4,
