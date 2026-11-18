@@ -38,3 +38,39 @@ the median of the remaining four runs.
 
 These measurements use amount as double across all five formats.
 Timings can vary with execution order, caching and computer workload.
+
+## Session 3: Schemas and schema changes
+
+Batch1 has the original six columns. Batch2 adds coupon_code.
+
+Without schema merging, my combined read did not include coupon_code.
+With mergeSchema=True, Spark included the new column and filled it
+with null for batch1 rows because those files never had that column.
+
+Order 10 showed null, while order 1010 showed SAVE10.
+
+Changing amount from double to string in batch3 caused
+CANNOT_MERGE_SCHEMAS. Schema merging can include an added column,
+but it cannot automatically resolve this conflicting type.
+
+A real pipeline should validate incoming types and convert valid
+values to the agreed type, while flagging or rejecting invalid values.
+
+### CSV: inferred versus explicit schema
+
+Both methods returned 2,000,000 rows.
+
+| Method | Read + count time (seconds) |
+|---|---:|
+| Inferred schema | 2.684 |
+| Explicit schema | 0.591 |
+
+Inference selected integer for the IDs and timestamp for order_date.
+My explicit schema used long for the IDs and timestamp_ntz for
+order_date, matching the original Parquet schema.
+
+Providing a schema avoids the extra work of discovering column types
+and keeps the expected types consistent.
+
+The explicit read was faster in this run, but this was a single
+comparison and execution order and caching could affect the timings.
