@@ -227,6 +227,17 @@ Measures row counts and amount sums, excludes the first run, and reports
 median timings. Also displays CSV and Parquet execution plans to inspect
 column pruning.
 
+Explore schema changes and compare inferred versus explicit CSV schemas:
+
+```bash
+python -m week4.session3_schemas_evolution
+```
+
+Creates three small Parquet batches to demonstrate adding a column,
+merging schemas, and catching an intentional type conflict.
+Also compares CSV schema inference with an explicit schema.
+Results are recorded in notes/week4-5-answers.md.
+
 ## SQL window examples
 
 `practice/window_queries.sql` contains three examples:
