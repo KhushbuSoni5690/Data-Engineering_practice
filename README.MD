@@ -217,6 +217,16 @@ The output folders are overwritten when the script is rerun.
 
 Results and observations are recorded in `notes/week4-5-answers.md`. Timings depend on execution order, caching and computer workload, so a single run does not establish which format is always fastest.
 
+Compare reading performance across CSV, JSON and three Parquet compression formats:
+
+```bash
+python -m week4.session2_read_speed --formats-dir data/formats --runs 5
+```
+
+Measures row counts and amount sums, excludes the first run, and reports
+median timings. Also displays CSV and Parquet execution plans to inspect
+column pruning.
+
 ## SQL window examples
 
 `practice/window_queries.sql` contains three examples:
