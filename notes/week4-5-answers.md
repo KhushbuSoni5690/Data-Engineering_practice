@@ -74,3 +74,22 @@ and keeps the expected types consistent.
 
 The explicit read was faster in this run, but this was a single
 comparison and execution order and caching could affect the timings.
+
+## Session 4: Inside a Parquet file
+
+I inspected a Snappy Parquet part file containing 1,048,576 rows
+in one row group. All six columns used Snappy compression.
+
+The amount statistics in the first row group were:
+- Minimum: 0.06
+- Maximum: 981.36
+
+These statistics are stored in the file’s metadata, so we can inspect
+them without reading every order.
+
+For a filter such as amount > 1000, Spark can use the maximum to
+skip this row group because none of its values can match.
+For amount > 500, the group might contain matches and needs checking.
+
+This is row-group skipping using statistics, enabled by pushing
+the filter down to the Parquet reader.
