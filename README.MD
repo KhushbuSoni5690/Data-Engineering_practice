@@ -238,6 +238,17 @@ merging schemas, and catching an intentional type conflict.
 Also compares CSV schema inference with an explicit schema.
 Results are recorded in notes/week4-5-answers.md.
 
+Inspect a Parquet part file’s row groups, column compression and
+minimum/maximum amount statistics:
+
+```bash
+python -m week4.session4_parquet_internals --file "data/formats/parquet_snappy/part-00001-6539cab6-c13e-4139-8671-68f902ad03e1-c000.snappy.parquet"
+```
+
+Uses PyArrow to inspect metadata without starting Spark.
+Replace the file path if the data is regenerated.
+Observations are recorded in notes/week4-5-answers.md.
+
 ## SQL window examples
 
 `practice/window_queries.sql` contains three examples:
