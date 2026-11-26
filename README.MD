@@ -249,6 +249,21 @@ Uses PyArrow to inspect metadata without starting Spark.
 Replace the file path if the data is regenerated.
 Observations are recorded in notes/week4-5-answers.md.
 
+## Week 5 — Session 5: In-memory partitions
+
+Explore repartition, coalesce, category distribution and AQE.
+Compare the full cleaning pipeline and write using one partition.
+
+Run in Ubuntu WSL with the data-engineering environment activated:
+
+```bash
+python -m week5.session5_in_memory_partitions
+```
+
+Outputs are saved under `data/partitioned/session5`.
+The script pauses so you can inspect the Spark UI.
+Press Enter in the terminal when finished.
+
 ## SQL window examples
 
 `practice/window_queries.sql` contains three examples:
