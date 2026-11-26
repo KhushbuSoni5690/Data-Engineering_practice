@@ -93,3 +93,91 @@ For amount > 500, the group might contain matches and needs checking.
 
 This is row-group skipping using statistics, enabled by pushing
 the filter down to the Parquet reader.
+
+## Session 5: In-memory partitions
+
+The input had 5 partitions. repartition(4) produced 4, and
+repartition(20) produced 20. coalesce(2) reduced those 20 to 2.
+
+With repartition("category"), separate queries showed different
+partition counts. The final counting-query plan confirmed that
+AQE combined the category shuffle partitions into one.
+
+With repartition(6, "category"), six partitions remained, but only
+three contained rows:
+- Partition 0: Beauty, Books and Home — 999,900 rows.
+- Partition 3: Clothing — 333,785 rows.
+- Partition 5: Electronics and Sport — 666,315 rows.
+
+The categories had similar row counts, but different categories
+hashed to the same partition, making the partition sizes uneven.
+Partitioning by a column does not guarantee balanced workloads.
+
+### Coalesce versus repartition
+
+Initial pipeline-plus-write timings:
+- coalesce(1): 20.636 seconds
+- repartition(1): 14.110 seconds
+
+In the subsequent Spark UI run, coalesce used 5 tasks followed
+by 1 task. Repartition used 5 tasks, then 9 tasks, then 1 task.
+
+Repartition added a shuffle but allowed the intermediate processing
+to run across multiple tasks. Both versions finished with one writer.
+
+Coalesce avoids an extra shuffle, but reducing to one partition can
+also reduce parallelism in preceding work. Neither method is always
+faster; execution order and caching can affect these measurements.
+
+### AQE: parallelism first
+
+AQE and shuffle-partition coalescing were enabled.
+parallelismFirst was true, default parallelism was 8,
+and the advisory partition size was 64 MiB.
+
+With parallelismFirst enabled, Spark considers default parallelism
+when choosing its coalescing target instead of simply targeting
+64 MiB partitions.
+
+This helps explain why the earlier stage retained several tasks.
+The exact count also depends on shuffle-partition sizes, so eight
+default parallel tasks does not require exactly eight partitions.
+
+
+### Coalesce versus repartition
+
+The full cleaning pipeline plus Parquet write took:
+- coalesce(1): 20.636 seconds.
+- repartition(1): 14.110 seconds.
+
+In the Spark UI, the coalesce run had 5 tasks in an earlier
+stage, followed by 1 task doing the remaining processing and writing.
+
+The repartition run had stages with 5, 9 and 1 tasks.
+Its extra shuffle allowed more processing to happen in parallel
+before the final single writing task.
+
+Avoiding a shuffle does not always mean faster execution.
+These were single measurements, so they do not prove that
+repartition is always faster.
+
+### AQE and available parallelism
+
+AQE and adaptive partition coalescing were enabled.
+parallelismFirst was true, default parallelism was 8,
+and the advisory partition size was 64 MiB.
+
+My computer has 4 physical cores and 8 logical processors.
+With local[*], Spark could run up to 8 tasks simultaneously.
+Nine tasks can run across those slots as slots become available.
+
+AQE uses runtime information to adjust shuffle partitions.
+Partition counts can differ between queries because the amount
+of data being processed can differ.
+
+### What the timer measured
+
+Spark evaluates transformations lazily. Each write triggered
+the cleaning pipeline as well as saving its output.
+The cleaned DataFrame was not cached, so both writes requested
+execution of the pipeline.
