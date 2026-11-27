@@ -264,6 +264,30 @@ Outputs are saved under `data/partitioned/session5`.
 The script pauses so you can inspect the Spark UI.
 Press Enter in the terminal when finished.
 
+## Week 5 — Session 6: Disk partitioning
+
+Compare unpartitioned Parquet with layouts partitioned by
+category and order month.
+
+Run in Ubuntu WSL with the data-engineering environment activated:
+
+```bash
+python -m week5.session6_disk_partitioning
+```
+
+Input: `data/orders_clean_spark`
+
+Outputs:
+- `data/partitioned/unpartitioned`
+- `data/partitioned/by_category`
+- `data/partitioned/by_month`
+
+Running the script overwrites these three output layouts.
+
+The script also counts distinct customers and calculates average
+rows per customer. The customer-partitioned write was removed
+after demonstrating the overhead of creating many small files.
+
 ## SQL window examples
 
 `practice/window_queries.sql` contains three examples:
