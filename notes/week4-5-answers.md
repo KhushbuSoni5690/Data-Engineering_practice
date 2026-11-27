@@ -181,3 +181,27 @@ Spark evaluates transformations lazily. Each write triggered
 the cleaning pipeline as well as saving its output.
 The cleaned DataFrame was not cached, so both writes requested
 execution of the pipeline.
+
+## Session 6: Disk partitioning
+
+Used 2,000,000 cleaned orders to compare Parquet layouts.
+
+| Layout | Partition folders | Parquet files |
+|---|---:|---:|
+| Unpartitioned | None | 8 |
+| By category | 6 | 48 |
+| By month | 24 | 192 |
+
+partitionBy controls the folder layout on disk.
+It does not guarantee one file per folder. In this run,
+each of the eight writing tasks contributed a file to
+every category and month folder.
+
+There were 10,000 distinct customers, averaging 200 rows each.
+Writing by customer was slow and was interrupted.
+The incomplete output was subsequently deleted, and the
+customer write was removed from the script.
+
+High-cardinality partition columns can create many small files.
+The customer layout was not completed, so no final file count
+was measured for it.
